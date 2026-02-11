@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebuilt 2026</title>
+    <title>My Form</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f8fafc; padding: 20px; min-height: 100vh; overflow-y: auto; }
@@ -44,15 +44,15 @@
 </head>
 <body>
     <div class="form-container">
-        <h1 class="form-title">Rebuilt 2026</h1>
+        <h1 class="form-title">My Form</h1>
         <p class="form-subtitle">Please fill out the form below</p>
         <div id="successMessage" class="success-message">✓ Form submitted successfully!</div>
         <div id="errorMessage" class="error-message">Please correct the errors below.</div>
         <form id="dynamicForm" onsubmit="return handleSubmit(event)" novalidate>
             <h2 class="form-heading">Rebuilt 2026</h2>
             <div class="form-group">
-                <label class="form-label" for="teamNum">Team #</label>
-                <select class="form-select" id="teamNum" name="teamNum" >
+                <label class="form-label" for="teamNum">Team #<span class="required-asterisk">*</span></label>
+                <select class="form-select" id="teamNum" name="teamNum" required>
                     <option value="">Select an option</option>
                     <option value="31">31</option>
                     <option value="34">34</option>
@@ -104,21 +104,21 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label" for="scoutName">Scouter Name</label>
-                <input type="text" class="form-input" id="scoutName" name="scoutName" placeholder="" value="" >
+                <label class="form-label" for="scoutName">Scouter Name<span class="required-asterisk">*</span></label>
+                <input type="text" class="form-input" id="scoutName" name="scoutName" placeholder="" value="" required>
             </div>
             <div class="form-group">
-                <label class="form-label" for="MatchNum">Match #</label>
-                <input type="text" class="form-input" id="MatchNum" name="MatchNum" placeholder="" value="" >
+                <label class="form-label" for="MatchNum">Match #<span class="required-asterisk">*</span></label>
+                <input type="text" class="form-input" id="MatchNum" name="MatchNum" placeholder="" value="" required>
             </div>
             <div class="form-group">
-                <label class="form-label">Robot Position</label>
-            <div class="radio-group"><input type="radio" name="field_0" value="Red 1" > <label>Red 1</label></div>
-            <div class="radio-group"><input type="radio" name="field_0" value="Red 2" > <label>Red 2</label></div>
-            <div class="radio-group"><input type="radio" name="field_0" value="Red 3" > <label>Red 3</label></div>
-            <div class="radio-group"><input type="radio" name="field_0" value="Blue 1" > <label>Blue 1</label></div>
-            <div class="radio-group"><input type="radio" name="field_0" value="Blue 2" > <label>Blue 2</label></div>
-            <div class="radio-group"><input type="radio" name="field_0" value="Blue 3" > <label>Blue 3</label></div>
+                <label class="form-label">Robot Position<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_0" value="Red 1" required> <label>Red 1</label></div>
+            <div class="radio-group"><input type="radio" name="field_0" value="Red 2" required> <label>Red 2</label></div>
+            <div class="radio-group"><input type="radio" name="field_0" value="Red 3" required> <label>Red 3</label></div>
+            <div class="radio-group"><input type="radio" name="field_0" value="Blue 1" required> <label>Blue 1</label></div>
+            <div class="radio-group"><input type="radio" name="field_0" value="Blue 2" required> <label>Blue 2</label></div>
+            <div class="radio-group"><input type="radio" name="field_0" value="Blue 3" required> <label>Blue 3</label></div>
             </div>
             <div class="form-group">
                 <label class="form-label">Field Zones</label>
@@ -129,12 +129,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label">Starting Zone</label>
-            <div class="radio-group"><input type="radio" name="field_9" value="1" > <label>1</label></div>
-            <div class="radio-group"><input type="radio" name="field_9" value="2" > <label>2</label></div>
-            <div class="radio-group"><input type="radio" name="field_9" value="3" > <label>3</label></div>
-            <div class="radio-group"><input type="radio" name="field_9" value="4" > <label>4</label></div>
-            <div class="radio-group"><input type="radio" name="field_9" value="5" > <label>5</label></div>
+                <label class="form-label">Starting Zone<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_9" value="1" required> <label>1</label></div>
+            <div class="radio-group"><input type="radio" name="field_9" value="2" required> <label>2</label></div>
+            <div class="radio-group"><input type="radio" name="field_9" value="3" required> <label>3</label></div>
+            <div class="radio-group"><input type="radio" name="field_9" value="4" required> <label>4</label></div>
+            <div class="radio-group"><input type="radio" name="field_9" value="5" required> <label>5</label></div>
             </div>
             <h3 class="form-heading">Auto</h3>
             <div class="form-group">
@@ -144,13 +144,13 @@
             <div class="checkbox-group"><input type="checkbox" name="field_11" value="Neutral Zone"> <label>Neutral Zone</label></div>
             </div>
             <div class="form-group">
-                <label class="form-label">Auto Climb/UnClimb L1</label>
-            <div class="radio-group"><input type="radio" name="field_14" value="Yes" > <label>Yes</label></div>
-            <div class="radio-group"><input type="radio" name="field_14" value="No" > <label>No</label></div>
+                <label class="form-label">Auto Climb/UnClimb L1<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_14" value="Yes" required> <label>Yes</label></div>
+            <div class="radio-group"><input type="radio" name="field_14" value="No" required> <label>No</label></div>
             </div>
             <h3 class="form-heading">Teleop</h3>
             <div class="form-group">
-                <label class="form-label" for="field_16">Intake Speed</label>
+                <label class="form-label" for="field_16">Intake Speed<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -246,12 +246,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_16" name="field_16" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_16" name="field_16" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_16_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_17">Fuel Control</label>
+                <label class="form-label" for="field_17">Fuel Control<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -347,12 +347,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_17" name="field_17" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_17" name="field_17" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_17_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_18">Rate of Fire</label>
+                <label class="form-label" for="field_18">Rate of Fire<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -448,12 +448,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_18" name="field_18" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_18" name="field_18" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_18_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_19">Accuracy</label>
+                <label class="form-label" for="field_19">Accuracy<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -549,12 +549,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_19" name="field_19" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_19" name="field_19" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_19_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_20">Passing Ability</label>
+                <label class="form-label" for="field_20">Passing Ability<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -650,12 +650,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_20" name="field_20" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_20" name="field_20" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_20_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_21">Robot Speed</label>
+                <label class="form-label" for="field_21">Robot Speed<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -751,12 +751,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_21" name="field_21" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_21" name="field_21" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_21_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_22">Driver Skill</label>
+                <label class="form-label" for="field_22">Driver Skill<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -852,12 +852,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_22" name="field_22" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_22" name="field_22" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_22_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_23">Defensive Ability</label>
+                <label class="form-label" for="field_23">Defensive Ability<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -953,7 +953,7 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_23" name="field_23" min="1" max="5" value="3" step="1"  style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_23" name="field_23" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_23_value">3</span></div>
                 </div>
             </div>
@@ -972,8 +972,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_27">Climb Position</label>
-                <select class="form-select" id="field_27" name="field_27" >
+                <label class="form-label" for="field_27">Climb Position<span class="required-asterisk">*</span></label>
+                <select class="form-select" id="field_27" name="field_27" required>
                     <option value="">Select an option</option>
                     <option value="N/A">N/A</option>
                     <option value="1A">1A</option>
@@ -989,22 +989,22 @@
             </div>
             <h3 class="form-heading">Extra Match Notes</h3>
             <div class="form-group">
-                <label class="form-label">Was the Robot Penalized?</label>
-            <div class="radio-group"><input type="radio" name="field_29" value="None" > <label>None</label></div>
-            <div class="radio-group"><input type="radio" name="field_29" value="Few" > <label>Few</label></div>
-            <div class="radio-group"><input type="radio" name="field_29" value="Many" > <label>Many</label></div>
+                <label class="form-label">Was the Robot Penalized?<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_29" value="None" required> <label>None</label></div>
+            <div class="radio-group"><input type="radio" name="field_29" value="Few" required> <label>Few</label></div>
+            <div class="radio-group"><input type="radio" name="field_29" value="Many" required> <label>Many</label></div>
             </div>
             <div class="form-group">
-                <label class="form-label">Did the Robot Have Balance Issues?</label>
-            <div class="radio-group"><input type="radio" name="field_33" value="None" > <label>None</label></div>
-            <div class="radio-group"><input type="radio" name="field_33" value="Few" > <label>Few</label></div>
-            <div class="radio-group"><input type="radio" name="field_33" value="Many" > <label>Many</label></div>
+                <label class="form-label">Did the Robot Have Balance Issues?<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_33" value="None" required> <label>None</label></div>
+            <div class="radio-group"><input type="radio" name="field_33" value="Few" required> <label>Few</label></div>
+            <div class="radio-group"><input type="radio" name="field_33" value="Many" required> <label>Many</label></div>
             </div>
             <div class="form-group">
-                <label class="form-label">Did the Robot Get Stuck on Fuel?</label>
-            <div class="radio-group"><input type="radio" name="field_34" value="None" > <label>None</label></div>
-            <div class="radio-group"><input type="radio" name="field_34" value="Few" > <label>Few</label></div>
-            <div class="radio-group"><input type="radio" name="field_34" value="Many" > <label>Many</label></div>
+                <label class="form-label">Did the Robot Get Stuck on Fuel?<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="field_34" value="None" required> <label>None</label></div>
+            <div class="radio-group"><input type="radio" name="field_34" value="Few" required> <label>Few</label></div>
+            <div class="radio-group"><input type="radio" name="field_34" value="Many" required> <label>Many</label></div>
             </div>
             <div class="form-actions">
                 <button type="submit" class="submit-btn">Submit Form</button>
@@ -1047,7 +1047,7 @@
                 window.lastFormData = data;
                 
                 // Clear fields that have clearOnSubmit enabled
-                const clearOnSubmitFields = [];
+                const clearOnSubmitFields = ["teamNum","field_9","field_11","field_14","field_16","field_17","field_18","field_19","field_20","field_21","field_22","field_23","field_24","field_27","field_29","field_33","field_34"];
                 clearOnSubmitFields.forEach(fieldName => {
                     const field = form.querySelector(`[name="${fieldName}"]`);
                     if (field) {
