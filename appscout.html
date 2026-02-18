@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 REBUILT SCOUTING</title>
+    <title>REBUILT 2026</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f8fafc; padding: 20px; min-height: 100vh; overflow-y: auto; }
-        .form-container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .form-container { max-width: 100%; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
         .form-title { font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; text-align: center; }
         .form-subtitle { color: #858f9d; text-align: center; margin-bottom: 32px; }
         .form-group { margin-bottom: 24px; }
@@ -45,8 +45,8 @@
 </head>
 <body>
     <div class="form-container">
-        <h1 class="form-title">2026 REBUILT SCOUTING</h1>
-        <p class="form-subtitle">Please contact your active scouting supervisor for any assistance</p>
+        <h1 class="form-title">REBUILT 2026</h1>
+        <p class="form-subtitle">Please consult your active duty scouting advisor for any assistance.</p>
         <div id="successMessage" class="success-message">✓ Form submitted successfully!</div>
         <div id="errorMessage" class="error-message">Please correct the errors below.</div>
         <form id="dynamicForm" onsubmit="return handleSubmit(event)" >
@@ -140,9 +140,9 @@
             <h3 class="form-heading">Auto</h3>
             <div class="form-group">
                 <label class="form-label">Auto Path Locations<span class="required-asterisk">*</span></label>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Depot"> <label>Depot</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Outpost"> <label>Outpost</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Neutral Zone"> <label>Neutral Zone</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Depot"> <label>Depot</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Outpost"> <label>Outpost</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Neutral Zone"> <label>Neutral Zone</label></div>
             </div>
             <div class="form-group">
                 <label class="form-label">Auto Climb/UnClimb L1<span class="required-asterisk">*</span></label>
@@ -960,9 +960,9 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Scoring Positions<span class="required-asterisk">*</span></label>
-            <div class="checkbox-group"><input type="checkbox" name="field_24" value="Against Hub"> <label>Against Hub</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_24" value="Midrange"> <label>Midrange</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_24" value="Anywhere in Zone"> <label>Anywhere in Zone</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_24[]" value="Against Hub"> <label>Against Hub</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_24[]" value="Midrange"> <label>Midrange</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_24[]" value="Anywhere in Zone"> <label>Anywhere in Zone</label></div>
             </div>
             <div class="form-group">
                 <label class="form-label">Image Display</label>
@@ -1032,10 +1032,14 @@
                 let isValid = true;
                 let firstInvalidField = null;
                 
+                // Validate regular required fields
                 requiredFields.forEach(field => {
-                    // Handle different field types
+                    // Skip checkboxes as they are handled separately
+                    if (field.type === "checkbox") return;
+                    
                     let isEmpty = false;
-                    if (field.type === "checkbox" || field.type === "radio") {
+                    if (field.type === "radio") {
+                        // For radio buttons, check if any radio with the same name is checked
                         const checkedField = form.querySelector(`[name="${field.name}"]:checked`);
                         isEmpty = !checkedField;
                     } else {
@@ -1050,6 +1054,45 @@
                         field.classList.remove("form-input-error");
                     }
                 });
+                
+                // Validate checkbox groups separately
+                console.log("Checking checkbox groups...");
+                const checkboxGroups = [{"id":"element_10","type":"checkbox","label":"Auto Path Locations","name":"field_11","required":true,"placeholder":"","options":["Depot","Outpost","Neutral Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_23","type":"checkbox","label":"Scoring Positions","name":"field_24","required":true,"placeholder":"","options":["Against Hub","Midrange","Anywhere in Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true}];
+                console.log("Required checkbox groups:", checkboxGroups);
+                checkboxGroups.forEach(element => {
+                    const fieldName = element.name || "field_" + element.id;
+                    console.log("Validating checkbox group:", fieldName);
+                    const checkedBoxes = form.querySelectorAll(`[name="${fieldName}[]"]:checked`);
+                    console.log("Checked boxes for", fieldName, ":", checkedBoxes.length);
+                    
+                    if (checkedBoxes.length === 0) {
+                        console.log("Checkbox group", fieldName, "is invalid");
+                        isValid = false;
+                        // Highlight checkbox group
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.add("form-input-error");
+                                if (!firstInvalidField) {
+                                    firstInvalidField = firstCheckbox;
+                                    console.log("Setting firstInvalidField to checkbox:", fieldName);
+                                }
+                            }
+                        }
+                    } else {
+                        console.log("Checkbox group", fieldName, "is valid");
+                        // Remove error highlighting if valid
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.remove("form-input-error");
+                            }
+                        }
+                    }
+                });
+                console.log("Final isValid:", isValid, "firstInvalidField:", firstInvalidField);
                 
                 if (!isValid) {
                     errorMessage.style.display = "block";
