@@ -46,7 +46,7 @@
 <body>
     <div class="form-container">
         <h1 class="form-title">Rebuilt 2026</h1>
-        <p class="form-subtitle">Please ask your scouting supervisor or Alliance Overseer for any assistance with what to put.</p>
+        <p class="form-subtitle">Please fill out the form below</p>
         <div id="successMessage" class="success-message">✓ Form submitted successfully!</div>
         <div id="errorMessage" class="error-message">Please correct the errors below.</div>
         <form id="dynamicForm" onsubmit="return handleSubmit(event)" >
@@ -140,16 +140,16 @@
             <h3 class="form-heading">Auto</h3>
             <div class="form-group">
                 <label class="form-label">Auto Path Locations<span class="required-asterisk">*</span></label>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="None"> <label>None</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Depot"> <label>Depot</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Outpost"> <label>Outpost</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_11" value="Neutral Zone"> <label>Neutral Zone</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="None"> <label>None</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Depot"> <label>Depot</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Outpost"> <label>Outpost</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_11[]" value="Neutral Zone"> <label>Neutral Zone</label></div>
             </div>
             <div class="form-group">
                 <label class="form-label">Auto Actions<span class="required-asterisk">*</span></label>
-            <div class="checkbox-group"><input type="checkbox" name="field_40" value="None"> <label>None</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_40" value="Score Fuel into Hub"> <label>Score Fuel into Hub</label></div>
-            <div class="checkbox-group"><input type="checkbox" name="field_40" value="Pass Fuel to Alliance Zone"> <label>Pass Fuel to Alliance Zone</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_40[]" value="None"> <label>None</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_40[]" value="Score Fuel into Hub"> <label>Score Fuel into Hub</label></div>
+            <div class="checkbox-group"><input type="checkbox" name="field_40[]" value="Pass Fuel to Alliance Zone"> <label>Pass Fuel to Alliance Zone</label></div>
             </div>
             <div class="form-group">
                 <label class="form-label">Auto Climb/UnClimb L1<span class="required-asterisk">*</span></label>
@@ -183,11 +183,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -204,7 +221,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -221,7 +238,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -254,109 +271,8 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_16" name="field_16" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_16" name="field_16" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_16_value">3</span></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="field_17">Fuel Control<span class="required-asterisk">*</span></label>
-                <div class="range-slider-container" style="position: relative;">
-                    <div class="range-ticks" style="
-                        position: absolute; 
-                        top: -25px; 
-                        left: 0; 
-                        right: 0; 
-                        height: 20px; 
-                        pointer-events: none;
-                    ">
-                        <div style="
-                            position: absolute;
-                            left: 0%;
-                            transform: translateX(-50%);
-                            font-size: 10px;
-                            color: #6b7280;
-                            text-align: center;
-                            white-space: nowrap;
-                        ">
-                            <div style="
-                                height: 8px; 
-                                width: 1px; 
-                                background: #9ca3af; 
-                                margin: 0 auto 2px;
-                            "></div>
-                            <div style="line-height: 1; margin-top: 2px;">1</div>
-                        </div>
-                        <div style="
-                            position: absolute;
-                            left: 25%;
-                            transform: translateX(-50%);
-                            font-size: 10px;
-                            color: #6b7280;
-                            text-align: center;
-                            white-space: nowrap;
-                        ">
-                            <div style="
-                                height: 8px; 
-                                width: 1px; 
-                                background: #9ca3af; 
-                                margin: 0 auto 2px;
-                            "></div>
-                            <div style="line-height: 1; margin-top: 2px;">2</div>
-                        </div>
-                        <div style="
-                            position: absolute;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            font-size: 10px;
-                            color: #6b7280;
-                            text-align: center;
-                            white-space: nowrap;
-                        ">
-                            <div style="
-                                height: 8px; 
-                                width: 1px; 
-                                background: #9ca3af; 
-                                margin: 0 auto 2px;
-                            "></div>
-                            <div style="line-height: 1; margin-top: 2px;">3</div>
-                        </div>
-                        <div style="
-                            position: absolute;
-                            left: 75%;
-                            transform: translateX(-50%);
-                            font-size: 10px;
-                            color: #6b7280;
-                            text-align: center;
-                            white-space: nowrap;
-                        ">
-                            <div style="
-                                height: 8px; 
-                                width: 1px; 
-                                background: #9ca3af; 
-                                margin: 0 auto 2px;
-                            "></div>
-                            <div style="line-height: 1; margin-top: 2px;">4</div>
-                        </div>
-                        <div style="
-                            position: absolute;
-                            left: 100%;
-                            transform: translateX(-50%);
-                            font-size: 10px;
-                            color: #6b7280;
-                            text-align: center;
-                            white-space: nowrap;
-                        ">
-                            <div style="
-                                height: 8px; 
-                                width: 1px; 
-                                background: #9ca3af; 
-                                margin: 0 auto 2px;
-                            "></div>
-                            <div style="line-height: 1; margin-top: 2px;">5</div>
-                        </div>
-                    </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_17" name="field_17" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
-                    <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_17_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
@@ -385,11 +301,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -406,7 +339,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -423,7 +356,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -456,7 +389,7 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_18" name="field_18" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_18" name="field_18" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_18_value">3</span></div>
                 </div>
             </div>
@@ -486,11 +419,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -507,7 +457,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -524,7 +474,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -557,7 +507,7 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_19" name="field_19" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_19" name="field_19" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_19_value">3</span></div>
                 </div>
             </div>
@@ -587,11 +537,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -608,7 +575,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -625,7 +592,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -658,12 +625,12 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_20" name="field_20" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_20" name="field_20" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_20_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="field_21">Robot Speed<span class="required-asterisk">*</span></label>
+                <label class="form-label" for="field_43">Herding Ability<span class="required-asterisk">*</span></label>
                 <div class="range-slider-container" style="position: relative;">
                     <div class="range-ticks" style="
                         position: absolute; 
@@ -688,11 +655,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -709,7 +693,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -726,7 +710,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -759,8 +743,126 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_21" name="field_21" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
-                    <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_21_value">3</span></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_43" name="field_43" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_43_value">3</span></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field_44">Fuel Stealing Ability<span class="required-asterisk">*</span></label>
+                <div class="range-slider-container" style="position: relative;">
+                    <div class="range-ticks" style="
+                        position: absolute; 
+                        top: -25px; 
+                        left: 0; 
+                        right: 0; 
+                        height: 20px; 
+                        pointer-events: none;
+                    ">
+                        <div style="
+                            position: absolute;
+                            left: 0%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">1</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 40%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">2</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 60%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">3</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 80%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">4</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 100%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
+                            <div style="line-height: 1; margin-top: 2px;">5</div>
+                        </div>
+                    </div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_44" name="field_44" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_44_value">3</span></div>
                 </div>
             </div>
             <div class="form-group">
@@ -789,11 +891,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -810,7 +929,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -827,7 +946,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -860,7 +979,7 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_22" name="field_22" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_22" name="field_22" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_22_value">3</span></div>
                 </div>
             </div>
@@ -890,11 +1009,28 @@
                                 background: #9ca3af; 
                                 margin: 0 auto 2px;
                             "></div>
+                            <div style="line-height: 1; margin-top: 2px;">0</div>
+                        </div>
+                        <div style="
+                            position: absolute;
+                            left: 20%;
+                            transform: translateX(-50%);
+                            font-size: 10px;
+                            color: #6b7280;
+                            text-align: center;
+                            white-space: nowrap;
+                        ">
+                            <div style="
+                                height: 8px; 
+                                width: 1px; 
+                                background: #9ca3af; 
+                                margin: 0 auto 2px;
+                            "></div>
                             <div style="line-height: 1; margin-top: 2px;">1</div>
                         </div>
                         <div style="
                             position: absolute;
-                            left: 25%;
+                            left: 40%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -911,7 +1047,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 50%;
+                            left: 60%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -928,7 +1064,7 @@
                         </div>
                         <div style="
                             position: absolute;
-                            left: 75%;
+                            left: 80%;
                             transform: translateX(-50%);
                             font-size: 10px;
                             color: #6b7280;
@@ -961,7 +1097,7 @@
                             <div style="line-height: 1; margin-top: 2px;">5</div>
                         </div>
                     </div>
-                    <div class="range-container"><input type="range" class="range-input" id="field_23" name="field_23" min="1" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
+                    <div class="range-container"><input type="range" class="range-input" id="field_23" name="field_23" min="0" max="5" value="3" step="1" required style="margin-top: 10px; margin-bottom: 5px;"></div>
                     <div class="range-value" style="text-align: center; margin-top: 4px; font-size: 12px; color: #6b7280;">Current value: <span id="field_23_value">3</span></div>
                 </div>
             </div>
@@ -972,6 +1108,7 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Scoring Locations<span class="required-asterisk">*</span></label>
+            <div class="radio-group"><input type="radio" name="scoring_positions" value="None" required> <label>None</label></div>
             <div class="radio-group"><input type="radio" name="scoring_positions" value="Against Hub" required> <label>Against Hub</label></div>
             <div class="radio-group"><input type="radio" name="scoring_positions" value="Midrange" required> <label>Midrange</label></div>
             <div class="radio-group"><input type="radio" name="scoring_positions" value="Anywhere in Zone" required> <label>Anywhere in Zone</label></div>
@@ -1057,10 +1194,14 @@
                 let isValid = true;
                 let firstInvalidField = null;
                 
+                // Validate regular required fields
                 requiredFields.forEach(field => {
-                    // Handle different field types
+                    // Skip checkboxes as they are handled separately
+                    if (field.type === "checkbox") return;
+                    
                     let isEmpty = false;
-                    if (field.type === "checkbox" || field.type === "radio") {
+                    if (field.type === "radio") {
+                        // For radio buttons, check if any radio with the same name is checked
                         const checkedField = form.querySelector(`[name="${field.name}"]:checked`);
                         isEmpty = !checkedField;
                     } else {
@@ -1075,6 +1216,45 @@
                         field.classList.remove("form-input-error");
                     }
                 });
+                
+                // Validate checkbox groups separately
+                console.log("Checking checkbox groups...");
+                const checkboxGroups = [{"id":"element_10","type":"checkbox","label":"Auto Path Locations","name":"field_11","required":true,"placeholder":"","options":["None","Depot","Outpost","Neutral Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_39","type":"checkbox","label":"Auto Actions","name":"field_40","required":true,"placeholder":"","options":["None","Score Fuel into Hub","Pass Fuel to Alliance Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true}];
+                console.log("Required checkbox groups:", checkboxGroups);
+                checkboxGroups.forEach(element => {
+                    const fieldName = element.name || "field_" + element.id;
+                    console.log("Validating checkbox group:", fieldName);
+                    const checkedBoxes = form.querySelectorAll(`[name="${fieldName}[]"]:checked`);
+                    console.log("Checked boxes for", fieldName, ":", checkedBoxes.length);
+                    
+                    if (checkedBoxes.length === 0) {
+                        console.log("Checkbox group", fieldName, "is invalid");
+                        isValid = false;
+                        // Highlight checkbox group
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.add("form-input-error");
+                                if (!firstInvalidField) {
+                                    firstInvalidField = firstCheckbox;
+                                    console.log("Setting firstInvalidField to checkbox:", fieldName);
+                                }
+                            }
+                        }
+                    } else {
+                        console.log("Checkbox group", fieldName, "is valid");
+                        // Remove error highlighting if valid
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.remove("form-input-error");
+                            }
+                        }
+                    }
+                });
+                console.log("Final isValid:", isValid, "firstInvalidField:", firstInvalidField);
                 
                 if (!isValid) {
                     errorMessage.style.display = "block";
@@ -1104,9 +1284,12 @@
                 window.lastFormData = data;
                 
                 // Clear fields that have clearOnSubmit enabled
-                const clearOnSubmitElements = [{"id":"element_4","type":"select","label":"Team #","name":"teamNum","required":true,"placeholder":"","options":["31","34","1209","1561","1706","1785","1806","1939","2165","2183","2333","2341","2352","2359","2373","2383","2457","2718","2773","3160","3179","3247","3465","3526","3892","3931","4005","4206","4256","4500","4522","4523","4635","4766","5550","5889","5968","6026","6391","6424","6809","8711","9472","9551","10377","10661","10931"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_8","type":"radio","label":"Starting Zone","name":"field_9","required":true,"placeholder":"","options":["1","2","3","4","5"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_10","type":"checkbox","label":"Auto Path Locations","name":"field_11","required":true,"placeholder":"","options":["None","Depot","Outpost","Neutral Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_39","type":"checkbox","label":"Auto Actions","name":"field_40","required":true,"placeholder":"","options":["None","Score Fuel into Hub","Pass Fuel to Alliance Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_13","type":"radio","label":"Auto Climb/UnClimb L1","name":"field_14","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_15","type":"range","label":"Intake Speed","name":"field_16","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_16","type":"range","label":"Fuel Control","name":"field_17","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_17","type":"range","label":"Rate of Fire","name":"field_18","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_18","type":"range","label":"Accuracy","name":"field_19","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_19","type":"range","label":"Passing Ability","name":"field_20","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_20","type":"range","label":"Robot Speed","name":"field_21","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_21","type":"range","label":"Driver Skill","name":"field_22","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_22","type":"range","label":"Defensive Ability","name":"field_23","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":1,"max":5,"step":1,"incremental":false},{"id":"element_34","type":"radio","label":"Move While Scoring?","name":"move_while_scoring","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_37","type":"radio","label":"Scoring Locations","name":"scoring_positions","required":true,"placeholder":"","options":["Against Hub","Midrange","Anywhere in Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_26","type":"select","label":"Climb Position","name":"field_27","required":true,"placeholder":"","options":["N/A","1A","1B","1C","2A","2B","2C","3A","3B","3C"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_38","type":"radio","label":"Did the Robot Jam?","name":"field_39","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_32","type":"radio","label":"Did the Robot Have Balance Issues? (Tippy)","name":"field_33","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_40","type":"radio","label":"Did the Robot Get Stuck on Fuel/Bump?","name":"get-stuck","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_41","type":"radio","label":"Did the Robot Break? (Parts flying, etc)","name":"field_42","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_36","type":"radio","label":"Deadbot","name":"field_37","required":true,"placeholder":"","options":["None","One Fourth","One Half","Three Fourths","Full"],"value":"","className":"","helpText":"","clearOnSubmit":true}];
+                const clearOnSubmitElements = [{"id":"element_4","type":"select","label":"Team #","name":"teamNum","required":true,"placeholder":"","options":["31","34","1209","1561","1706","1785","1806","1939","2165","2183","2333","2341","2352","2359","2373","2383","2457","2718","2773","3160","3179","3247","3465","3526","3892","3931","4005","4206","4256","4500","4522","4523","4635","4766","5550","5889","5968","6026","6391","6424","6809","8711","9472","9551","10377","10661","10931"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_8","type":"radio","label":"Starting Zone","name":"field_9","required":true,"placeholder":"","options":["1","2","3","4","5"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_10","type":"checkbox","label":"Auto Path Locations","name":"field_11","required":true,"placeholder":"","options":["None","Depot","Outpost","Neutral Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_39","type":"checkbox","label":"Auto Actions","name":"field_40","required":true,"placeholder":"","options":["None","Score Fuel into Hub","Pass Fuel to Alliance Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_13","type":"radio","label":"Auto Climb/UnClimb L1","name":"field_14","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_15","type":"range","label":"Intake Speed","name":"field_16","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_17","type":"range","label":"Rate of Fire","name":"field_18","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_18","type":"range","label":"Accuracy","name":"field_19","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_19","type":"range","label":"Passing Ability","name":"field_20","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_42","type":"range","label":"Herding Ability","name":"field_43","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"Herding - pushing fuel on the ground","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_43","type":"range","label":"Fuel Stealing Ability","name":"field_44","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"How well do they steal fuel from the opposing alliances zone?","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_21","type":"range","label":"Driver Skill","name":"field_22","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_22","type":"range","label":"Defensive Ability","name":"field_23","required":true,"placeholder":"","options":[],"value":3,"className":"","helpText":"","clearOnSubmit":true,"min":0,"max":5,"step":1,"incremental":false},{"id":"element_34","type":"radio","label":"Move While Scoring?","name":"move_while_scoring","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_37","type":"radio","label":"Scoring Locations","name":"scoring_positions","required":true,"placeholder":"","options":["None","Against Hub","Midrange","Anywhere in Zone"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_26","type":"select","label":"Climb Position","name":"field_27","required":true,"placeholder":"","options":["N/A","1A","1B","1C","2A","2B","2C","3A","3B","3C"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_38","type":"radio","label":"Did the Robot Jam?","name":"field_39","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_32","type":"radio","label":"Did the Robot Have Balance Issues? (Tippy)","name":"field_33","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_40","type":"radio","label":"Did the Robot Get Stuck on Fuel/Bump?","name":"get-stuck","required":true,"placeholder":"","options":["None (0)","Few (1-2)","Many (3+)"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_41","type":"radio","label":"Did the Robot Break? (Parts flying, etc)","name":"field_42","required":true,"placeholder":"","options":["Yes","No"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_36","type":"radio","label":"Deadbot","name":"field_37","required":true,"placeholder":"","options":["None","One Fourth","One Half","Three Fourths","Full"],"value":"","className":"","helpText":"","clearOnSubmit":true}];
                 clearOnSubmitElements.forEach(element => {
-                    const fields = form.querySelectorAll(`[name="${element.name}"]`);
+                    let fieldName = element.name || "field_" + element.id;
+                    // For checkbox groups, use array naming
+                    const searchName = element.type === "checkbox" ? fieldName + "[]" : fieldName;
+                    const fields = form.querySelectorAll(`[name="${searchName}"]`);
                     fields.forEach(field => {
                         if (field.type === "checkbox" || field.type === "radio") {
                             field.checked = false;
