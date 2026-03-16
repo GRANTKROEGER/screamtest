@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Scouting Sheet</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f8fafc; padding: 20px; min-height: 100vh; overflow-y: auto; }
+        .form-container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .form-title { font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; text-align: center; }
+        .form-subtitle { color: #858f9d; text-align: center; margin-bottom: 32px; }
+        .form-group { margin-bottom: 24px; }
+        .form-label { display: block; font-weight: 500; color: #1f2937; margin-bottom: 6px; font-size: 14px; }
+        .required-asterisk { color: #ef4444; margin-left: 2px; }
+        .form-input, .form-textarea, .form-select { width: 100%; padding: 12px 16px; border: 2px solid #ebf5ff; border-radius: 8px; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s; color: #1f2937; background: #ffffff; }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: #e13bf7; box-shadow: 0 0 0 3px #e13bf720; }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        .checkbox-group, .radio-group { display: flex; align-items: center; margin-bottom: 8px; }
+        .checkbox-group input, .radio-group input { margin-right: 8px; width: 16px; height: 16px; }
+        .checkbox-group label, .radio-group label { font-size: 14px; color: #1f2937; }
+        .range-container { margin-bottom: 8px; }
+        .range-input { width: 100%; height: 6px; border-radius: 3px; background: #ebf5ff; outline: none; -webkit-appearance: none; }
+        .range-input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #e13bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        .range-input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #e13bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        .range-value { font-size: 12px; color: #858f9d; text-align: center; margin-top: 4px; }
+        .form-heading { font-size: 1.5rem; font-weight: 600; color: #1f2937; margin-bottom: 16px; }
+        .form-paragraph { color: #858f9d; margin-bottom: 16px; line-height: 1.6; }
+        .form-divider { border: none; border-top: 2px solid #ebf5ff; margin: 32px 0; }
+        .form-actions { display: flex; gap: 12px; margin-top: 32px; }
+        .submit-btn, .reset-btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .submit-btn { background: #e13bf7; color: white; flex: 1; }
+        .submit-btn:hover { background: #b913cf; transform: translateY(-1px); }
+        .reset-btn { background: #ebf5ff; color: #1f2937; }
+        .reset-btn:hover { background: #b8c2d0; }
+        .form-input-error { border-color: #ef4444 !important; box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important; }
+        .success-message { background: #10b981; color: white; padding: 16px; border-radius: 8px; text-align: center; margin-bottom: 24px; display: none; }
+        .error-message { background: #ef4444; color: white; padding: 16px; border-radius: 8px; text-align: center; margin-bottom: 24px; display: none; }
+        .data-export { margin-top: 20px; padding: 16px; background: #ffffff; border-radius: 8px; border: 1px solid #ebf5ff; }
+        .data-export h4 { color: #1f2937; margin-bottom: 12px; font-size: 16px; }
+        .export-btn { padding: 8px 16px; background: #e13bf7; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-right: 8px; }
+        .export-btn:hover { background: #b913cf; }
+        @media (max-width: 640px) { body { padding: 10px; } .form-container { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Super Scouting Sheet</h1>
+        <p class="form-subtitle">Please fill out the form below</p>
+        <div id="successMessage" class="success-message">✓ Form submitted successfully!</div>
+        <div id="errorMessage" class="error-message">Please correct the errors below.</div>
+        <form id="dynamicForm" onsubmit="return handleSubmit(event)" >
+            <div class="form-group">
+                <label class="form-label" for="field_3">Team #<span class="required-asterisk">*</span></label>
+                <select class="form-select" id="field_3" name="field_3" required>
+                    <option value="">Select an option</option>
+                    <option value="16">16</option>
+                    <option value="127">127</option>
+                    <option value="1209">1209</option>
+                    <option value="2036">2036</option>
+                    <option value="2341">2341</option>
+                    <option value="3184">3184</option>
+                    <option value="3468">3468</option>
+                    <option value="3937">3937</option>
+                    <option value="4499">4499</option>
+                    <option value="4522">4522</option>
+                    <option value="4603">4603</option>
+                    <option value="4764">4764</option>
+                    <option value="4766">4766</option>
+                    <option value="5437">5437</option>
+                    <option value="5454">5454</option>
+                    <option value="5472">5472</option>
+                    <option value="6186">6186</option>
+                    <option value="6424">6424</option>
+                    <option value="6647">6647</option>
+                    <option value="7255">7255</option>
+                    <option value="7483">7483</option>
+                    <option value="8753">8753</option>
+                    <option value="9067">9067</option>
+                    <option value="9073">9073</option>
+                    <option value="11102">11102</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field_2">Scouter Name<span class="required-asterisk">*</span></label>
+                <input type="text" class="form-input" id="field_2" name="field_2" placeholder="" value="" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field_1">Match #<span class="required-asterisk">*</span></label>
+                <input type="text" class="form-input" id="field_1" name="field_1" placeholder="" value="" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field_4">Pros<span class="required-asterisk">*</span></label>
+                <textarea class="form-textarea" id="field_4" name="field_4" placeholder="" required></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="field_7">Cons<span class="required-asterisk">*</span></label>
+                <textarea class="form-textarea" id="field_7" name="field_7" placeholder="" required></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Submit Form</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+        <div id="dataExportOptions" class="data-export" style="display: none;">
+            <h4>Export Form Data</h4>
+            <div id="qrCodeContainer" style="margin: 16px 0; text-align: center;"></div>
+        </div>
+        <script>
+            // Global form submission handler
+            function handleSubmit(event) {
+                console.log("handleSubmit called!");
+                event.preventDefault();
+                event.stopPropagation();
+                
+                const form = document.getElementById("dynamicForm");
+                const successMessage = document.getElementById("successMessage");
+                const errorMessage = document.getElementById("errorMessage");
+                
+                // Validate required fields
+                const requiredFields = form.querySelectorAll("[required]");
+                let isValid = true;
+                let firstInvalidField = null;
+                
+                // Validate regular required fields
+                requiredFields.forEach(field => {
+                    // Skip checkboxes as they are handled separately
+                    if (field.type === "checkbox") return;
+                    
+                    let isEmpty = false;
+                    if (field.type === "radio") {
+                        // For radio buttons, check if any radio with the same name is checked
+                        const checkedField = form.querySelector(`[name="${field.name}"]:checked`);
+                        isEmpty = !checkedField;
+                    } else {
+                        isEmpty = !field.value.trim();
+                    }
+                    
+                    if (isEmpty) {
+                        isValid = false;
+                        field.classList.add("form-input-error");
+                        if (!firstInvalidField) firstInvalidField = field;
+                    } else {
+                        field.classList.remove("form-input-error");
+                    }
+                });
+                
+                // Validate checkbox groups separately
+                console.log("Checking checkbox groups...");
+                const checkboxGroups = [];
+                console.log("Required checkbox groups:", checkboxGroups);
+                checkboxGroups.forEach(element => {
+                    const fieldName = element.name || "field_" + element.id;
+                    console.log("Validating checkbox group:", fieldName);
+                    const checkedBoxes = form.querySelectorAll(`[name="${fieldName}[]"]:checked`);
+                    console.log("Checked boxes for", fieldName, ":", checkedBoxes.length);
+                    
+                    if (checkedBoxes.length === 0) {
+                        console.log("Checkbox group", fieldName, "is invalid");
+                        isValid = false;
+                        // Highlight checkbox group
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.add("form-input-error");
+                                if (!firstInvalidField) {
+                                    firstInvalidField = firstCheckbox;
+                                    console.log("Setting firstInvalidField to checkbox:", fieldName);
+                                }
+                            }
+                        }
+                    } else {
+                        console.log("Checkbox group", fieldName, "is valid");
+                        // Remove error highlighting if valid
+                        const firstCheckbox = form.querySelector(`[name="${fieldName}[]"]`);
+                        if (firstCheckbox) {
+                            const checkboxGroup = firstCheckbox.closest(".form-group");
+                            if (checkboxGroup) {
+                                checkboxGroup.classList.remove("form-input-error");
+                            }
+                        }
+                    }
+                });
+                console.log("Final isValid:", isValid, "firstInvalidField:", firstInvalidField);
+                
+                if (!isValid) {
+                    errorMessage.style.display = "block";
+                    successMessage.style.display = "none";
+                    if (firstInvalidField) firstInvalidField.focus();
+                    return false;
+                }
+                
+                // Collect form data
+                const formData = new FormData(form);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                }
+                
+                console.log("Form data collected:", data);
+                
+                // Store form data for export
+                window.lastFormData = data;
+                
+                // Clear fields that have clearOnSubmit enabled
+                const clearOnSubmitElements = [{"id":"element_2","type":"select","label":"Team #","name":"field_3","required":true,"placeholder":"","options":["16","127","1209","2036","2341","3184","3468","3937","4499","4522","4603","4764","4766","5437","5454","5472","6186","6424","6647","7255","7483","8753","9067","9073","11102"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_0","type":"text","label":"Match #","name":"field_1","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_3","type":"textarea","label":"Pros","name":"field_4","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_6","type":"textarea","label":"Cons","name":"field_7","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true}];
+                clearOnSubmitElements.forEach(element => {
+                    let fieldName = element.name || "field_" + element.id;
+                    // For checkbox groups, use array naming
+                    const searchName = element.type === "checkbox" ? fieldName + "[]" : fieldName;
+                    const fields = form.querySelectorAll(`[name="${searchName}"]`);
+                    fields.forEach(field => {
+                        if (field.type === "checkbox" || field.type === "radio") {
+                            field.checked = false;
+                        } else {
+                            field.value = "";
+                        }
+                    });
+                });
+                
+                // Show success message
+                successMessage.style.display = "block";
+                errorMessage.style.display = "none";
+                
+                // Create confetti celebration
+                createConfetti();
+                
+                setTimeout(() => { successMessage.style.display = "none"; }, 5000);
+                
+                // Show data export options
+                const exportDiv = document.getElementById("dataExportOptions");
+                if (exportDiv) {
+                    exportDiv.style.display = "block";
+                    console.log("Export options shown");
+                    
+                    // Auto-generate QR code if QR type is selected
+                    if ("qr" === "qr") {
+                        console.log("Generating QR code...");
+                        generateAndShowQR();
+                    }
+                }
+                
+                return false;
+            }
+            
+            // Confetti celebration function
+            function createConfetti() {
+                const colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#f9ca24", "#f0932b", "#eb4d4b", "#6ab04c", "#c7ecee", "#dfe6e9", "#74b9ff"];
+                const confettiCount = 50;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement("div");
+                        confetti.style.cssText = `
+                            position: fixed;
+                            width: 10px;
+                            height: 10px;
+                            background: ${colors[Math.floor(Math.random() * colors.length)]};
+                            left: ${Math.random() * 100}%;
+                            top: -10px;
+                            opacity: 1;
+                            transform: rotate(${Math.random() * 360}deg);
+                            pointer-events: none;
+                            z-index: 9999;
+                            border-radius: ${Math.random() > 0.5 ? "50%" : "0"};
+                        `;
+                        
+                        document.body.appendChild(confetti);
+                        
+                        const duration = Math.random() * 2 + 1;
+                        const distance = Math.random() * 200 + 100;
+                        
+                        confetti.animate([
+                            {
+                                transform: `translateY(${distance}px) rotate(${Math.random() * 720 - 360}deg)`,
+                                opacity: 1
+                            },
+                            {
+                                transform: `translateY(${distance + 100}px) rotate(${Math.random() * 720 - 360}deg)`,
+                                opacity: 0
+                            }
+                        ], {
+                            duration: duration * 1000,
+                            easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+                        }).onfinish = () => confetti.remove();
+                    }, i * 30);
+                }
+            }
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const rangeInputs = document.querySelectorAll("input[type='range']");
+                rangeInputs.forEach(function(input) {
+                    const valueDisplay = document.getElementById(input.id + "_value");
+                    if (valueDisplay) {
+                        valueDisplay.textContent = input.value;
+                    }
+                    input.addEventListener("input", function() {
+                        valueDisplay.textContent = this.value;
+                    });
+                });
+                
+                // Prevent Enter key from clearing form in input fields
+                const form = document.getElementById("dynamicForm");
+                if (form) {
+                    form.addEventListener("keydown", function(e) {
+                        if (e.key === "Enter" && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            return false;
+                        }
+                    });
+                }
+            });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // QR Code generation using proven qrcode.js library
+        function generateQRCode(text) {
+            const container = document.createElement("div");
+            container.style.width = "256px";
+            container.style.height = "256px";
+            container.style.margin = "0 auto";
+            
+            try {
+                // Generate QR code using qrcode.js
+                new QRCode(container, {
+                    text: text,
+                    width: 256,
+                    height: 256,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+                
+                console.log("QR code generated successfully with qrcode.js");
+                return container;
+                
+            } catch (error) {
+                console.error("QR generation error:", error);
+                container.innerHTML = "QR Generation Failed";
+                container.style.textAlign = "center";
+                container.style.color = "red";
+                return container;
+            }
+        }
+                
+            async function generateAndShowQR() {
+                console.log("generateAndShowQR called");
+                const data = window.lastFormData;
+                console.log("Data to encode:", data);
+                if (!data) {
+                    console.log("No data found");
+                    return;
+                }
+                    
+                    // Convert form data to CSV format (values only)
+                    const csvValues = Object.values(data).map(value => {
+                        // Handle commas and quotes in values
+                        const stringValue = String(value).replace(/"/g, '""');
+                        return stringValue.includes(",") || stringValue.includes("\"") ? `"${stringValue}"` : stringValue;
+                    }).join(";");
+                    const dataString = csvValues;
+                    console.log("Data string (CSV values only):", dataString);
+                    const canvas = await generateQRCode(dataString);
+                    console.log("QR code generated");
+                    
+                    // Show QR code in container
+                    const container = document.getElementById("qrCodeContainer");
+                    console.log("Container:", container);
+                    if (container) {
+                        container.innerHTML = "";
+                        canvas.style.margin = "0 auto";
+                        canvas.style.border = "2px solid #e5e7eb";
+                        canvas.style.borderRadius = "8px";
+                        container.appendChild(canvas);
+                        console.log("QR code added to container");
+                        
+                        // Add download link below QR code
+                        const downloadLink = document.createElement("a");
+                        downloadLink.textContent = "Download QR Code";
+                        downloadLink.className = "export-btn";
+                        downloadLink.style.display = "inline-block";
+                        downloadLink.style.marginTop = "12px";
+                        downloadLink.href = "#";
+                        downloadLink.onclick = function(e) {
+                            e.preventDefault();
+                            canvas.toBlob(function(blob) {
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement("a");
+                                a.href = url;
+                                a.download = "form-data-qr.png";
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                                URL.revokeObjectURL(url);
+                            });
+                        };
+                        container.appendChild(downloadLink);
+                    } else {
+                        console.error("QR container not found");
+                    }
+                }
+                
+            function exportAsCSV() {
+                const data = window.lastFormData;
+                if (!data) {
+                    alert("No form data to export!");
+                    return;
+                }
+                    
+                    let csv = "Field,Value\n";
+                    for (const [key, value] of Object.entries(data)) {
+                        const displayValue = Array.isArray(value) ? value.join("; ") : value;
+                        csv += `"${key}","${displayValue}"\n`;
+                    }
+                    
+                    const blob = new Blob([csv], { type: "text/csv" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "form-data.csv";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+                
+            function exportAsJSON() {
+                const data = window.lastFormData;
+                if (!data) {
+                    alert("No form data to export!");
+                    return;
+                }
+                
+                const jsonData = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonData], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "form-data.json";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                alert("Form data exported as JSON!");
+            }
+        </script>
+    </div>
+</body>
+</html>
