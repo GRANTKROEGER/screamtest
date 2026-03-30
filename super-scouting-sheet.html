@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Scouting Sheet</title>
+    <title>Super Scouting</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f8fafc; padding: 20px; min-height: 100vh; overflow-y: auto; }
@@ -14,23 +14,23 @@
         .form-label { display: block; font-weight: 500; color: #1f2937; margin-bottom: 6px; font-size: 14px; }
         .required-asterisk { color: #ef4444; margin-left: 2px; }
         .form-input, .form-textarea, .form-select { width: 100%; padding: 12px 16px; border: 2px solid #ebf5ff; border-radius: 8px; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s; color: #1f2937; background: #ffffff; }
-        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: #e13bf7; box-shadow: 0 0 0 3px #e13bf720; }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: #f43bf7; box-shadow: 0 0 0 3px #f43bf720; }
         .form-textarea { resize: vertical; min-height: 100px; }
         .checkbox-group, .radio-group { display: flex; align-items: center; margin-bottom: 8px; }
         .checkbox-group input, .radio-group input { margin-right: 8px; width: 16px; height: 16px; }
         .checkbox-group label, .radio-group label { font-size: 14px; color: #1f2937; }
         .range-container { margin-bottom: 8px; }
         .range-input { width: 100%; height: 6px; border-radius: 3px; background: #ebf5ff; outline: none; -webkit-appearance: none; }
-        .range-input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #e13bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
-        .range-input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #e13bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        .range-input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #f43bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        .range-input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #f43bf7; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
         .range-value { font-size: 12px; color: #858f9d; text-align: center; margin-top: 4px; }
         .form-heading { font-size: 1.5rem; font-weight: 600; color: #1f2937; margin-bottom: 16px; }
         .form-paragraph { color: #858f9d; margin-bottom: 16px; line-height: 1.6; }
         .form-divider { border: none; border-top: 2px solid #ebf5ff; margin: 32px 0; }
         .form-actions { display: flex; gap: 12px; margin-top: 32px; }
         .submit-btn, .reset-btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
-        .submit-btn { background: #e13bf7; color: white; flex: 1; }
-        .submit-btn:hover { background: #b913cf; transform: translateY(-1px); }
+        .submit-btn { background: #f43bf7; color: white; flex: 1; }
+        .submit-btn:hover { background: #cc13cf; transform: translateY(-1px); }
         .reset-btn { background: #ebf5ff; color: #1f2937; }
         .reset-btn:hover { background: #b8c2d0; }
         .form-input-error { border-color: #ef4444 !important; box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important; }
@@ -38,14 +38,14 @@
         .error-message { background: #ef4444; color: white; padding: 16px; border-radius: 8px; text-align: center; margin-bottom: 24px; display: none; }
         .data-export { margin-top: 20px; padding: 16px; background: #ffffff; border-radius: 8px; border: 1px solid #ebf5ff; }
         .data-export h4 { color: #1f2937; margin-bottom: 12px; font-size: 16px; }
-        .export-btn { padding: 8px 16px; background: #e13bf7; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-right: 8px; }
-        .export-btn:hover { background: #b913cf; }
+        .export-btn { padding: 8px 16px; background: #f43bf7; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-right: 8px; }
+        .export-btn:hover { background: #cc13cf; }
         @media (max-width: 640px) { body { padding: 10px; } .form-container { padding: 20px; } }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1 class="form-title">Super Scouting Sheet</h1>
+        <h1 class="form-title">Super Scouting</h1>
         <p class="form-subtitle">Please fill out the form below</p>
         <div id="successMessage" class="success-message">✓ Form submitted successfully!</div>
         <div id="errorMessage" class="error-message">Please correct the errors below.</div>
@@ -54,31 +54,48 @@
                 <label class="form-label" for="field_3">Team #<span class="required-asterisk">*</span></label>
                 <select class="form-select" id="field_3" name="field_3" required>
                     <option value="">Select an option</option>
-                    <option value="16">16</option>
-                    <option value="127">127</option>
-                    <option value="1209">1209</option>
-                    <option value="2036">2036</option>
-                    <option value="2341">2341</option>
+                    <option value="1108">1108</option>
+                    <option value="1208">1208</option>
+                    <option value="1710">1710</option>
+                    <option value="1723">1723</option>
+                    <option value="1730">1730</option>
+                    <option value="1764">1764</option>
+                    <option value="1785">1785</option>
+                    <option value="1802">1802</option>
+                    <option value="1806">1806</option>
+                    <option value="1825">1825</option>
+                    <option value="1827">1827</option>
+                    <option value="1939">1939</option>
+                    <option value="1982">1982</option>
+                    <option value="1987">1987</option>
+                    <option value="1997">1997</option>
+                    <option value="2001">2001</option>
+                    <option value="2040">2040</option>
+                    <option value="2333">2333</option>
+                    <option value="2410">2410</option>
+                    <option value="2560">2560</option>
                     <option value="3184">3184</option>
-                    <option value="3468">3468</option>
-                    <option value="3937">3937</option>
-                    <option value="4499">4499</option>
+                    <option value="4213">4213</option>
+                    <option value="4329">4329</option>
+                    <option value="4455">4455</option>
                     <option value="4522">4522</option>
-                    <option value="4603">4603</option>
-                    <option value="4764">4764</option>
                     <option value="4766">4766</option>
-                    <option value="5437">5437</option>
-                    <option value="5454">5454</option>
-                    <option value="5472">5472</option>
-                    <option value="6186">6186</option>
-                    <option value="6424">6424</option>
-                    <option value="6647">6647</option>
-                    <option value="7255">7255</option>
-                    <option value="7483">7483</option>
-                    <option value="8753">8753</option>
-                    <option value="9067">9067</option>
-                    <option value="9073">9073</option>
-                    <option value="11102">11102</option>
+                    <option value="5098">5098</option>
+                    <option value="5268">5268</option>
+                    <option value="5801">5801</option>
+                    <option value="5809">5809</option>
+                    <option value="5918">5918</option>
+                    <option value="5968">5968</option>
+                    <option value="6817">6817</option>
+                    <option value="7064">7064</option>
+                    <option value="8112">8112</option>
+                    <option value="8770">8770</option>
+                    <option value="9031">9031</option>
+                    <option value="9428">9428</option>
+                    <option value="9445">9445</option>
+                    <option value="9570">9570</option>
+                    <option value="11171">11171</option>
+                    <option value="11195">11195</option>
                 </select>
             </div>
             <div class="form-group">
@@ -212,7 +229,7 @@
                 window.lastFormData = data;
                 
                 // Clear fields that have clearOnSubmit enabled
-                const clearOnSubmitElements = [{"id":"element_2","type":"select","label":"Team #","name":"field_3","required":true,"placeholder":"","options":["16","127","1209","2036","2341","3184","3468","3937","4499","4522","4603","4764","4766","5437","5454","5472","6186","6424","6647","7255","7483","8753","9067","9073","11102"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_0","type":"text","label":"Match #","name":"field_1","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_3","type":"textarea","label":"Pros","name":"field_4","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_6","type":"textarea","label":"Cons","name":"field_7","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true}];
+                const clearOnSubmitElements = [{"id":"element_2","type":"select","label":"Team #","name":"field_3","required":true,"placeholder":"","options":["1108","1208","1710","1723","1730","1764","1785","1802","1806","1825","1827","1939","1982","1987","1997","2001","2040","2333","2410","2560","3184","4213","4329","4455","4522","4766","5098","5268","5801","5809","5918","5968","6817","7064","8112","8770","9031","9428","9445","9570","11171","11195"],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_0","type":"text","label":"Match #","name":"field_1","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_3","type":"textarea","label":"Pros","name":"field_4","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true},{"id":"element_6","type":"textarea","label":"Cons","name":"field_7","required":true,"placeholder":"","options":[],"value":"","className":"","helpText":"","clearOnSubmit":true}];
                 clearOnSubmitElements.forEach(element => {
                     let fieldName = element.name || "field_" + element.id;
                     // For checkbox groups, use array naming
